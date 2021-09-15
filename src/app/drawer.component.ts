@@ -2,6 +2,7 @@ import {Component, Input, OnInit, TemplateRef} from '@angular/core';
 import {Subscription} from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import {NzAvatarComponent} from 'ng-zorro-antd';
+import {Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-drawer',
@@ -108,7 +109,7 @@ export class DrawerComponent implements OnInit {
   @Input() headerPrimaryLabel: string | null = null;
   @Input() headerSecondaryLabel: string | null = null;
 
-  constructor(private breakpoints: BreakpointObserver) { }
+  constructor(private breakpoints: BreakpointObserver, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -134,6 +135,7 @@ export class DrawerComponent implements OnInit {
 
   close(): void {
     this.visible = false;
+    this.router.navigate(['']);
   }
 
   open(): void {

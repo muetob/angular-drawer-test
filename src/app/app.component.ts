@@ -6,7 +6,13 @@ import {MainDrawerService} from './main-drawer.service';
   selector: 'app-root',
   template: `
     <a [routerLink]="[{ outlets: { primary: ['user-detail', 1], drawer: ['user-detail-drawer'] } }]">
-      User Details
+      User 1
+    </a>
+    <a [routerLink]="[{ outlets: { primary: ['user-detail', 2], drawer: ['user-detail-drawer'] } }]">
+      User 2
+    </a>
+    <a [routerLink]="[{ outlets: { primary: ['user-detail', 3], drawer: ['user-detail-drawer'] } }]">
+      User 3
     </a>
 
     <ng-template #actions>
