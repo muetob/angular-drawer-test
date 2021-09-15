@@ -5,7 +5,7 @@ import {MainDrawerService} from './main-drawer.service';
 @Component({
   selector: 'app-root',
   template: `
-    <a [routerLink]="[{ outlets: { primary: ['user-detail'], drawer: ['user-detail-drawer'] } }]">
+    <a [routerLink]="[{ outlets: { primary: ['user-detail', 1], drawer: ['user-detail-drawer'] } }]">
       User Details
     </a>
 

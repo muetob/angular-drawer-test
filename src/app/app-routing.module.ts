@@ -17,16 +17,16 @@ const routes: Routes = [
     component: MainContentComponent,
   },
   {
-    path: 'user-detail',
+    path: 'user-detail/:id',
     component: MainContentComponent,
+    resolve: {
+      user: UserResolver
+    },
   },
   {
     path: 'user-detail-drawer',
     component: UserDetailComponent,
     outlet: 'drawer',
-    resolve: {
-      user: UserResolver
-    },
   },
 ];
 
