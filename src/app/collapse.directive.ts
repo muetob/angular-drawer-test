@@ -1,4 +1,4 @@
-import {Directive, EventEmitter, TemplateRef} from '@angular/core';
+import {Directive, EventEmitter, Input, TemplateRef} from '@angular/core';
 
 @Directive({
   selector: '[appCollapse]'
@@ -8,6 +8,7 @@ export class CollapseDirective {
 
   title: string;
   active: boolean;
+  contentLoading: boolean;
   onActiveChanged: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private templateRef: TemplateRef<any>) {

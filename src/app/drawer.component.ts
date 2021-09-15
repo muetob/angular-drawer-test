@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import {Subscription} from 'rxjs';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-drawer',
   template: `
-  <button nz-button nzType="primary" (click)="open()">Open Drawer</button>
-
   <nz-drawer
+    [nzWidth]="drawerWidth"
     [nzClosable]="true"
     [nzVisible]="visible"
     nzPlacement="right"
@@ -19,9 +20,32 @@ import { Component, OnInit } from '@angular/core';
 export class DrawerComponent implements OnInit {
   visible: boolean = false;
 
-  constructor() { }
+  drawerWidth = '50%';
+
+  private unsub = new Subscription();
+
+  constructor(private breakpoints: BreakpointObserver) { }
 
   ngOnInit(): void {
+
+    this.unsub.add(
+      this.breakpoints.observe(['(max-width: 1440px)', '(max-width: 960px)']).subscribe(result => {
+        const is1440px = result.breakpoints['(max-width: 1440px)'];
+        const is960px = result.breakpoints['(max-width: 960px)'];
+
+        if (is960px) {
+          this.drawerWidth = '100%';
+          return;
+        }
+
+        if (is1440px) {
+          this.drawerWidth = '65%';
+          return;
+        }
+
+        this.drawerWidth = '50%';
+      })
+    );
   }
 
   close(): void {

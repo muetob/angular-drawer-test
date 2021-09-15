@@ -13,7 +13,14 @@ import {CollapseDirective} from './collapse.directive';
             </strong>
           </span>
       </ng-template>
-      <ng-container *ngTemplateOutlet="collapse.itemTemplate"></ng-container>
+
+      <ng-template #loadedContent>
+        <ng-container *ngTemplateOutlet="collapse.itemTemplate"></ng-container>
+      </ng-template>
+
+      <ng-container *ngIf="collapse.contentLoading; else loadedContent">
+        <nz-skeleton [nzActive]="true"></nz-skeleton>
+      </ng-container>
     </nz-collapse-panel>
   </nz-collapse>
   `

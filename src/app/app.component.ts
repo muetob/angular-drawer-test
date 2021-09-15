@@ -15,10 +15,17 @@ interface Item {
       <app-user-detail></app-user-detail>
     </div>
 
-
-    <app-drawer>
+    <app-drawer #detailDrawer>
       <app-user-detail></app-user-detail>
     </app-drawer>
+
+    <button nz-button nzType="primary" (click)="detailDrawer.open()">Open Detail Drawer</button>
+
+    <app-drawer #editDrawer>
+      <app-user-edit></app-user-edit>
+    </app-drawer>
+
+    <button nz-button nzType="primary" (click)="editDrawer.open()">Open Edit Drawer</button>
 
     <div *ngFor="let item of (items | sortedItems: 'name')">
       {{item.name}}
