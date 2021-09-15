@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {MainContentComponent} from './main-content.component';
 import {UserEditComponent} from './user-edit.component';
+import {UserResolver} from './user-resolver';
+import {UserDetailComponent} from './user-detail.component';
 
 
 const routes: Routes = [
@@ -20,8 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'user-detail-drawer',
-    component: UserEditComponent,
-    outlet: 'drawer'
+    component: UserDetailComponent,
+    outlet: 'drawer',
+    resolve: {
+      user: UserResolver
+    },
   },
 ];
 

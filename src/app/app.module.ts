@@ -15,10 +15,20 @@ import { DrawerComponent } from './drawer.component';
 import { UserDetailComponent } from './user-detail.component';
 import { CollapsePanelComponent } from './collapse-panel.component';
 import { CollapseDirective } from './collapse.directive';
-import {NzButtonModule, NzCollapseModule, NzDrawerModule, NzSkeletonModule, NzTypographyModule} from 'ng-zorro-antd';
+import {
+  NzAvatarModule,
+  NzButtonModule,
+  NzCollapseModule,
+  NzDividerModule,
+  NzDrawerModule,
+  NzIconModule,
+  NzSkeletonModule,
+  NzTypographyModule,
+} from 'ng-zorro-antd';
 import { SortedItemsPipe } from './sorted-items.pipe';
 import { UserEditComponent } from './user-edit.component';
 import { MainContentComponent } from './main-content.component';
+import { NzSpaceModule } from 'ng-zorro-antd/space';
 
 registerLocaleData(en);
 
@@ -44,7 +54,11 @@ registerLocaleData(en);
     NzDrawerModule,
     NzButtonModule,
     NzTypographyModule,
-    NzSkeletonModule
+    NzSkeletonModule,
+    NzDividerModule,
+    NzIconModule,
+    NzAvatarModule,
+    NzSpaceModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

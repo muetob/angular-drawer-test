@@ -14,13 +14,17 @@ interface Item {
       <app-user-detail></app-user-detail>
     </div>
 
-    <app-drawer #detailDrawer>
+    <ng-template #actions>
+      <button nz-button nzType="primary">Save</button>
+    </ng-template>
+
+    <app-drawer #detailDrawer headerPrimaryLabel="Details" [headerActions]="actions">
       <app-user-detail></app-user-detail>
     </app-drawer>
 
     <button nz-button nzType="primary" (click)="detailDrawer.open()">Open Detail Drawer</button>
 
-    <app-drawer #editDrawer>
+    <app-drawer #editDrawer headerPrimaryLabel="Edit">
       <app-user-edit></app-user-edit>
     </app-drawer>
 

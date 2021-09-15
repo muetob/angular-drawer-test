@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from './user';
+import {ActivatedRoute} from '@angular/router';
+import {MainDrawerService} from './main-drawer.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -14,10 +17,20 @@ import { Component, OnInit } from '@angular/core';
   `,
 })
 export class UserDetailComponent implements OnInit {
+  user: User;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private mainDrawerServiceService: MainDrawerService) { }
 
   ngOnInit(): void {
+    this.user = this.route.snapshot.data['user'] as User;
+
+    if (this.user) {
+      const header = `Details of user ${this.user.name}`;
+
+      console.log('Set drawer header to', header);
+
+      this.mainDrawerServiceService.setPrimaryHeader(header);
+    }
   }
 
   activeChanged($event: boolean, identifier) {
