@@ -15,7 +15,7 @@ import { DrawerComponent } from './drawer.component';
 import { UserDetailComponent } from './user-detail.component';
 import { CollapsePanelComponent } from './collapse-panel.component';
 import { CollapseDirective } from './collapse.directive';
-import {NzButtonModule, NzCollapseModule, NzDrawerModule} from 'ng-zorro-antd';
+import {NzButtonModule, NzCollapseModule, NzDrawerModule, NzTypographyModule} from 'ng-zorro-antd';
 
 registerLocaleData(en);
 
@@ -36,7 +36,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzCollapseModule,
     NzDrawerModule,
-    NzButtonModule
+    NzButtonModule,
+    NzTypographyModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
