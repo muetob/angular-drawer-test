@@ -33,7 +33,7 @@ import {Route, Router} from '@angular/router';
         </div>
 
         <div class="close-section">
-          <button nz-button nzType="text" (click)="close()">
+          <button nz-button (click)="close()" nzType="'primary1'">
             <i nz-icon nzType="close"></i>
           </button>
         </div>
@@ -43,7 +43,7 @@ import {Route, Router} from '@angular/router';
     <nz-drawer
       [nzTitle]="drawerHeader"
       [nzWidth]="drawerWidth"
-      [nzClosable]="true"
+      [nzClosable]="false"
       [nzVisible]="visible"
       nzPlacement="right"
       nzTitle="Basic Drawer"

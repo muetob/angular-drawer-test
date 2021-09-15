@@ -29,6 +29,7 @@ import { SortedItemsPipe } from './sorted-items.pipe';
 import { UserEditComponent } from './user-edit.component';
 import { MainContentComponent } from './main-content.component';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { TypedTemplateRefComponent } from './typed-template-ref.component';
 
 registerLocaleData(en);
 
@@ -43,6 +44,7 @@ registerLocaleData(en);
     SortedItemsPipe,
     UserEditComponent,
     MainContentComponent,
+    TypedTemplateRefComponent,
   ],
   imports: [
     BrowserModule,

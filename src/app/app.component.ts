@@ -21,6 +21,12 @@ import {MainDrawerService} from './main-drawer.service';
 
     <router-outlet></router-outlet>
 
+    <ng-template let-item #templateRef>
+      The name is {{item.name}}
+    </ng-template>
+
+    <app-typed-template-ref [template]="templateRef"></app-typed-template-ref>
+
     <app-drawer
       [visible]="drawerOutlet.isActivated"
       [headerPrimaryLabel]="mainDrawerService.primaryHeader$ | async"
