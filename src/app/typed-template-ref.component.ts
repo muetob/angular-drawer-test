@@ -19,7 +19,7 @@ export class TypedTemplateRefComponent implements OnInit {
 
   context: {$implicit: TypedTemplateRefItem} = {$implicit: this.item};
 
-  @Input() template: TemplateRef<TypedTemplateRefItem>;
+  @Input() template: TemplateRef< {$implicit: TypedTemplateRefItem }>;
 
   constructor() { }
 

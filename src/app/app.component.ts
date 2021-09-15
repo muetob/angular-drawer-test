@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {MainDrawerService} from './main-drawer.service';
+import {TypedTemplateRefItem} from './typed-template-ref.component';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,9 @@ import {MainDrawerService} from './main-drawer.service';
     <router-outlet></router-outlet>
 
     <ng-template let-item #templateRef>
-      The name is {{item.name}}
+      <ng-template [ngIf]="identity(item)" let-args="ngIf">
+        The name is {{args.bla}}
+      </ng-template>
     </ng-template>
 
     <app-typed-template-ref [template]="templateRef"></app-typed-template-ref>
@@ -38,5 +41,9 @@ import {MainDrawerService} from './main-drawer.service';
 })
 export class AppComponent {
   constructor(public route: ActivatedRoute, public mainDrawerService: MainDrawerService) {
+  }
+
+  identity(item: TypedTemplateRefItem): TypedTemplateRefItem {
+    return item;
   }
 }
