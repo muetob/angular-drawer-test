@@ -1,57 +1,21 @@
 import { Component } from '@angular/core';
-
-interface Item {
-  id: number;
-  name: string;
-}
-
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
   template: `
-    <div>
-      Detail page
+    <a [routerLink]="[{ outlets: { primary: ['user-detail'], drawer: ['user-detail-drawer'] } }]">
+      User Details
+    </a>
 
-      <app-user-detail></app-user-detail>
-    </div>
+    <app-main-content></app-main-content>
 
-    <app-drawer #detailDrawer>
-      <app-user-detail></app-user-detail>
+    <app-drawer [visible]="drawerOutlet.isActivated">
+      <router-outlet #drawerOutlet="outlet" name="drawer"></router-outlet>
     </app-drawer>
-
-    <button nz-button nzType="primary" (click)="detailDrawer.open()">Open Detail Drawer</button>
-
-    <app-drawer #editDrawer>
-      <app-user-edit></app-user-edit>
-    </app-drawer>
-
-    <button nz-button nzType="primary" (click)="editDrawer.open()">Open Edit Drawer</button>
-
-    <div *ngFor="let item of (items | sortedItems: 'name')">
-      {{item.name}}
-    </div>
   `
 })
 export class AppComponent {
-  title = 'ant-playground';
-
-  items: Item[] = [
-    {
-      id: 2,
-      name: 'a',
-    },
-    {
-      id: 1,
-      name: 'aaa',
-    },
-    {
-      id: 4,
-      name: 'aa',
-    },
-
-    {
-      id: 3,
-      name: 'aaaaa',
-    },
-  ];
+  constructor(public route: ActivatedRoute) {
+  }
 }

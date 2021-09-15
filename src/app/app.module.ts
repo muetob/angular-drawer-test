@@ -18,6 +18,7 @@ import { CollapseDirective } from './collapse.directive';
 import {NzButtonModule, NzCollapseModule, NzDrawerModule, NzSkeletonModule, NzTypographyModule} from 'ng-zorro-antd';
 import { SortedItemsPipe } from './sorted-items.pipe';
 import { UserEditComponent } from './user-edit.component';
+import { MainContentComponent } from './main-content.component';
 
 registerLocaleData(en);
 
@@ -31,6 +32,7 @@ registerLocaleData(en);
     CollapseDirective,
     SortedItemsPipe,
     UserEditComponent,
+    MainContentComponent,
   ],
   imports: [
     BrowserModule,

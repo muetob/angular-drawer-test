@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
@@ -18,7 +18,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   `,
 })
 export class DrawerComponent implements OnInit {
-  visible: boolean = false;
+  @Input() visible: boolean = false;
 
   drawerWidth = '50%';
 
