@@ -16,6 +16,7 @@ import { UserDetailComponent } from './user-detail.component';
 import { CollapsePanelComponent } from './collapse-panel.component';
 import { CollapseDirective } from './collapse.directive';
 import {NzButtonModule, NzCollapseModule, NzDrawerModule, NzTypographyModule} from 'ng-zorro-antd';
+import { SortedItemsPipe } from './sorted-items.pipe';
 
 registerLocaleData(en);
 
@@ -27,6 +28,7 @@ registerLocaleData(en);
     UserDetailComponent,
     CollapsePanelComponent,
     CollapseDirective,
+    SortedItemsPipe,
   ],
   imports: [
     BrowserModule,
