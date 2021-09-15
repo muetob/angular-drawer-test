@@ -8,7 +8,7 @@ import {ActivatedRoute} from '@angular/router';
       User Details
     </a>
 
-    <app-main-content></app-main-content>
+    <router-outlet></router-outlet>
 
     <app-drawer [visible]="drawerOutlet.isActivated">
       <router-outlet #drawerOutlet="outlet" name="drawer"></router-outlet>
