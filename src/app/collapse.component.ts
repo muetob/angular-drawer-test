@@ -10,7 +10,7 @@ export class CollapseComponent implements AfterViewInit {
   @Input() title: string;
   @Input() active: boolean;
   @Input() contentLoading: boolean;
-  @Output() onActiveChanged: EventEmitter<boolean> = new EventEmitter();
+  @Output() activeChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor(public dir: CollapseDirective) {
 
@@ -19,7 +19,7 @@ export class CollapseComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.dir.title = this.title;
     this.dir.active = this.active;
-    this.dir.onActiveChanged = this.onActiveChanged;
+    this.dir.activeChange = this.activeChange;
     this.dir.contentLoading = this.contentLoading;
   }
 

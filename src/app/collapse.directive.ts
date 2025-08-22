@@ -9,13 +9,13 @@ export class CollapseDirective {
   title: string;
   active: boolean;
   contentLoading: boolean;
-  onActiveChanged: EventEmitter<boolean> = new EventEmitter();
+  activeChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private templateRef: TemplateRef<any>) {
     this.itemTemplate = templateRef;
   }
 
   activeChanged(changed: boolean): void {
-    this.onActiveChanged.emit(changed);
+    this.activeChange.emit(changed);
   }
 }

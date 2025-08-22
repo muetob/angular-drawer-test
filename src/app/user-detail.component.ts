@@ -7,10 +7,10 @@ import {MainDrawerService} from './main-drawer.service';
   selector: 'app-user-detail',
   template: `
   <app-collapse-panel>
-    <app-collapse title="Detail 1" *appCollapse [active]="true" (onActiveChanged)="activeChanged($event, 'tab1')">
+    <app-collapse title="Detail 1" *appCollapse [active]="true" (activeChange)="activeChanged($event, 'tab1')">
       Content 1
     </app-collapse>
-    <app-collapse title="Detail 2" *appCollapse (onActiveChanged)="activeChanged($event, 'tab2')">
+    <app-collapse title="Detail 2" *appCollapse (activeChange)="activeChanged($event, 'tab2')">
       Content 2
     </app-collapse>
   </app-collapse-panel>
@@ -19,17 +19,17 @@ import {MainDrawerService} from './main-drawer.service';
 export class UserDetailComponent implements OnInit {
   user: User;
 
-  constructor(private route: ActivatedRoute, private mainDrawerServiceService: MainDrawerService) { }
+  constructor(private route: ActivatedRoute, private mainDrawerService: MainDrawerService) { }
 
   ngOnInit(): void {
-    this.user = this.route.snapshot.data['user'] as User;
+    this.user = this.route.snapshot.data.user as User;
 
     if (this.user) {
       const header = `Details of user ${this.user.name}`;
 
       console.log('Set drawer header to', header);
 
-      this.mainDrawerServiceService.setPrimaryHeader(header);
+      this.mainDrawerService.setPrimaryHeader(header);
     }
   }
 
