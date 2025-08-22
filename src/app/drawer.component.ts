@@ -97,7 +97,7 @@ import {Route, Router} from '@angular/router';
   `]
 })
 export class DrawerComponent implements OnInit {
-  @Input() visible: boolean = false;
+  @Input() visible = false;
 
   drawerWidth = '50%';
 
